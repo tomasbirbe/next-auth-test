@@ -16,7 +16,7 @@ export default function LoginPage() {
     const { email_input, password_input } = event.target as HTMLFormElement;
 
     signInWithEmailAndPassword(email_input.value, password_input.value).then((data) => {
-      console.log(data);
+      setAuth(data);
     });
   }
 
