@@ -3,8 +3,10 @@ import style from "./Login.module.css";
 import { Input } from "@/components/Input";
 import { AuthContext } from "@/Providers/AuthProvider";
 import { signInWithEmailAndPassword } from "@/Firebase/SignInWithEmailAndPassword";
+import { useRouter } from "next/router";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [auth, setAuth] = useContext(AuthContext);
 
   useEffect(() => {
@@ -17,6 +19,7 @@ export default function LoginPage() {
 
     signInWithEmailAndPassword(email_input.value, password_input.value).then((data) => {
       setAuth(data);
+      router.push("/");
     });
   }
 
