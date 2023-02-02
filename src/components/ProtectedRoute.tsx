@@ -12,5 +12,14 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
     }
   }, [auth]);
 
-  return <>{children}</>;
+
+  if(auth.token !== "") {
+    return <>{children}</>;
+  } else {
+    if(router.pathname === '/login') {
+      return <>{children}</>
+    } else {
+      return <></>
+    }
+  }
 }

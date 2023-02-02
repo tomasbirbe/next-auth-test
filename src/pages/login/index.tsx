@@ -8,11 +8,7 @@ import { useRouter } from "next/router";
 export default function LoginPage() {
   const router = useRouter();
   const [auth, setAuth] = useContext(AuthContext);
-
-  useEffect(() => {
-    console.log(auth);
-  }, [auth]);
-
+  
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
     const { email_input, password_input } = event.target as HTMLFormElement;
